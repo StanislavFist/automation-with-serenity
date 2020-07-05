@@ -20,6 +20,9 @@ public class AuthorizationPage extends PageObject {
     @FindBy(xpath = "//*[@class = 'forget-pwd']")
     public WebElementFacade forgetPassword;
 
+    @FindBy(xpath = "//*[text() = ' Регистрация ']")
+    public WebElementFacade pageRegistration;
+
     @FindBy(xpath = "//*[@type = 'submit' and contains(@class, 'ui-button_disabled')]")
     public WebElementFacade disabledButtonSignIn;
 
@@ -44,6 +47,10 @@ public class AuthorizationPage extends PageObject {
 
     public void enterPassword(String password) {
         passwordInput.sendKeys(password);
+    }
+
+    public void buttonRegistration() {
+        pageRegistration.click();
     }
 
     public void clickButton() {

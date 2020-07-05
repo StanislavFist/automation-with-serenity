@@ -9,8 +9,10 @@ import org.openqa.selenium.WebDriver;
 import pageHelpers.Helpers;
 import scripts.AuthorizationPageScenarioSteps;
 import scripts.ForgotPageScenarioSteps;
-import scripts.HomePageScenarioSteps;
 
+/**
+ * Попытка авторизации, восстановление пароля пользователя
+ */
 @RunWith(SerenityRunner.class)
 public class RestorePassword {
 

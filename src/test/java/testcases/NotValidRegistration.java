@@ -9,12 +9,13 @@ import org.openqa.selenium.WebDriver;
 import pageHelpers.Helpers;
 import scripts.AuthorizationPageScenarioSteps;
 import scripts.HomePageScenarioSteps;
+import scripts.RegistrationPageScenarioSteps;
 
 /**
- * Успешная авторизация пользователя
+ * Регистрация пользователя с некорректным email
  */
 @RunWith(SerenityRunner.class)
-public class SuccessfullyLoggedIn {
+public class NotValidRegistration {
 
     @Managed(uniqueSession = true)
     WebDriver driver;
@@ -26,21 +27,26 @@ public class SuccessfullyLoggedIn {
     HomePageScenarioSteps homePageScenarioSteps;
 
     @Steps
+    RegistrationPageScenarioSteps registrationPageScenarioSteps;
+
+    @Steps
     AuthorizationPageScenarioSteps authorizationPageScenarioSteps;
 
     @Test
-    public void loginTsum() {
+    public void notValidRegistration() {
         homePageScenarioSteps.openPage();
         helpers.waitForPageLoad(driver);
         homePageScenarioSteps.homePageIsLoaded();
         homePageScenarioSteps.clickPersonalLk();
 
         authorizationPageScenarioSteps.authPageIsLoaded();
-        authorizationPageScenarioSteps.buttonIsDisabled();
-        authorizationPageScenarioSteps.enterEmail("yogad99432@enmail1.com");
-        authorizationPageScenarioSteps.enterPassword("testtest1");
-        authorizationPageScenarioSteps.clickButton();
+        authorizationPageScenarioSteps.buttonRegistration();
 
-        homePageScenarioSteps.homePageIsLoaded();
+        registrationPageScenarioSteps.registrationPageIsLoaded();
+        registrationPageScenarioSteps.buttonIsDisabled();
+        registrationPageScenarioSteps.enterEmail("not valid");
+        registrationPageScenarioSteps.enterPassword("testtest1");
+        registrationPageScenarioSteps.clickButton();
+        registrationPageScenarioSteps.errorNotice();
     }
 }

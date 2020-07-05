@@ -1,6 +1,7 @@
 package scripts;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import pages.AuthorizationPage;
@@ -12,6 +13,11 @@ public class AuthorizationPageScenarioSteps extends ScenarioSteps {
     @Step
     public void openPage() {
         authorizationPage.open();
+    }
+
+    @Step
+    public void buttonRegistration() {
+        authorizationPage.buttonRegistration();
     }
 
     @Step
